@@ -1,0 +1,36 @@
+/* .img {
+  width: 500px;
+  height: 300px;
+} */
+
+.dark {
+  background-color: grey;
+  color: white;
+}
+
+.container {
+  width: 15em;
+  margin: 0 0.25em;
+  float: left;
+}
+
+.pic img {
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: white;
+}
+
+.channel,
+.views {
+  font-size: small;
+  color: #ccc;
+  margin-bottom: 0.2em;
+}
+
+.views span {
+  padding: 0 0.5em;
+}

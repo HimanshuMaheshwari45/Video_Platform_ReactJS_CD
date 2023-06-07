@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Video from "./components/Video";
+import videosDB from "./data/data";
+import PlayButton from "./components/PlayButton";
+// import Counter from "./components/Counter";
+import { useState } from "react";
+import AddVideo from "./components/AddVideo";
 function App() {
+  const [videos, setVideos] = useState(videosDB);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1 className="test">Video.com</h1>
+      {videos.map((video) => (
+        <Video
+          key={video.id}
+          title={video.title}
+          channel={video.channel}
+          views={video.views}
+          time={video.time}
+          verified={video.verified}
+          id={video.id}
         >
-          Learn React
-        </a>
-      </header>
+          <PlayButton
+            onPlay={() => {
+              console.log(`Playing.. ${video.title}`);
+            }}
+            onPause={() => {
+              console.log(`Paused.. ${video.title}`);
+            }}
+          >
+            {video.title}
+          </PlayButton>
+        </Video>
+      ))}
+
+      <div>
+        <AddVideo></AddVideo>
+      </div>
     </div>
   );
 }
